@@ -18,6 +18,7 @@
 #define TURTLEBOT3_NODE__TURTLEBOT3_HPP_
 
 #include <geometry_msgs/msg/twist.hpp>
+#include <std_msgs/msg/int32.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/battery_state.hpp>
@@ -92,6 +93,7 @@ private:
 
   void cmd_vel_callback();
   void parameter_event_callback();
+  void motor_deg_callback();
 
   Wheels wheels_;
   Motors motors_;
@@ -109,6 +111,8 @@ private:
   rclcpp::TimerBase::SharedPtr heartbeat_timer_;
 
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_sub_;
+  rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr motor_deg_sub_;
+
 
   rclcpp::AsyncParametersClient::SharedPtr priv_parameters_client_;
   rclcpp::Subscription<rcl_interfaces::msg::ParameterEvent>::SharedPtr parameter_event_sub_;
