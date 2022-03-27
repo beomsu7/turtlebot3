@@ -105,6 +105,8 @@ typedef struct
 
   ControlItem profile_acceleration_left = {174, RAM, 4, READ_WRITE};
   ControlItem profile_acceleration_right = {178, RAM, 4, READ_WRITE};
+
+  ControlItem motor_deg = {182, RAM, 4, READ_WRITE};
 } ControlTable;
 
 const ControlTable extern_control_table;
